@@ -9,12 +9,11 @@ export const onGet: RequestHandler = async ({ json, url }) => {
     const to = url.searchParams.get('to') as string
 
     const URL = isFutureDate(from)
-      ? `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.TMDB_API_KEY}&first_air_date.gte=${from}&first_air_date.lte=${to}`
-      : `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.TMDB_API_KEY}&first_air_date.gte=${from}&first_air_date.lte=${to}&vote_average.gte=5&vote_count.gte=100`
+      ? `https://api.themoviedb.org/3/discover/tv?api_key=${process.env['TMDB_API_KEY']}&first_air_date.gte=${from}&first_air_date.lte=${to}`
+      : `https://api.themoviedb.org/3/discover/tv?api_key=${process.env['TMDB_API_KEY']}&first_air_date.gte=${from}&first_air_date.lte=${to}&vote_average.gte=5&vote_count.gte=100`
 
     const response = await fetch(URL)
     const data: TVsResponse = await response.json()
-    console.log(data, process.env.TMDB_API_KEY)
 
     json(200, releasesAdapter({ type: 'tv', response: data }))
   } catch (error) {

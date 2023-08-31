@@ -8,8 +8,8 @@ export const onGet: RequestHandler = async ({ json, url }) => {
   const to = url.searchParams.get('to') as string
 
   const URL = isFutureDate(from)
-    ? `https://api.rawg.io/api/games?key=${process.env.RAWG_API_KEY}&dates=${from},${to}&page_size=20`
-    : `https://api.rawg.io/api/games?key=${process.env.RAWG_API_KEY}&dates=${from},${to}&page_size=50&metacritic=70,100`
+    ? `https://api.rawg.io/api/games?key=${process.env['RAWG_API_KEY']}&dates=${from},${to}&page_size=20`
+    : `https://api.rawg.io/api/games?key=${process.env['RAWG_API_KEY']}&dates=${from},${to}&page_size=50&metacritic=70,100`
 
   const response = await fetch(URL)
   const data: GamesResponse = await response.json()
