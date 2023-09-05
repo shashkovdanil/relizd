@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
 import { Logo } from './Logo'
 import { getAdjacentMonthDetails } from '~/lib/getAdjacentMonthDetails'
+import IconArrow from '~/media/icons/arrow.svg?jsx'
 
 export const Header = component$(() => {
   const {
@@ -18,7 +19,7 @@ export const Header = component$(() => {
           class="font-bold capitalize text-lg hover:bg-white/80 transition-all py-0.5 px-2 rounded-md"
           href={`/${type}/${prev.month}-${prev.year}`}
           aria-label="To prev month">
-          ←
+          <IconArrow class="fill-black h-6 w-6" />
         </a>
         <p class="font-bold capitalize text-lg w-36 text-center">
           {current.month}{' '}
@@ -28,7 +29,7 @@ export const Header = component$(() => {
           class="font-bold capitalize text-lg hover:bg-white/80 transition-all py-0.5 px-2 rounded-md"
           href={`/${type}/${next.month}-${next.year}`}
           aria-label="To next month">
-          →
+          <IconArrow class="fill-black h-6 w-6 rotate-180" />
         </a>
       </div>
     </header>
