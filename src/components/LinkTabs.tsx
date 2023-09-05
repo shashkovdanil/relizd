@@ -13,7 +13,7 @@ export const LinkTabs = component$<Props>(({ data }) => {
           key={link.href}
           href={link.href}
           class={cn(
-            'tracking-wide transition-opacity hover:opacity-100',
+            'transition-opacity hover:opacity-100',
             {
               'opacity-100': link.active,
               'opacity-40': !link.active,

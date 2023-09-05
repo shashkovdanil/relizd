@@ -21,7 +21,7 @@ export const Header = component$(() => {
           aria-label="To prev month">
           <IconArrow class="fill-black h-6 w-6" />
         </a>
-        <p class="font-bold capitalize text-lg w-36 text-center">
+        <p class="font-bold capitalize text-lg text-center w-40">
           {current.month}{' '}
           <span class="font-thin tracking-wider">{current.year}</span>
         </p>

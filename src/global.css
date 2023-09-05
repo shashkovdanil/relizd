@@ -8,5 +8,7 @@ body {
 }
 
 body {
+  font-family: 'Prompt', system-ui;
+
   @apply bg-white text-black dark:bg-main-bg dark:text-main-text;
 }
