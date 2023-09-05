@@ -42,17 +42,17 @@ export const Calendar = component$<Props>(({ releases, month, year }) => {
           return (
             <div
               class={cn('rounded-xl relative', {
-                'bg-calendar-tile': isDayInCurrentMonth,
+                'bg-gray-200 dark:bg-white/10': isDayInCurrentMonth,
                 'hidden xl:block': !isDayInCurrentMonth,
               })}
               key={index}>
               {isDayInCurrentMonth && (
                 <>
-                  <div class="absolute text-xs/none w-9 px-2 py-1 text-center top-2 left-2 bg-calendar-day rounded-xl">
+                  <div class="absolute text-xs/none w-9 px-2 py-1 text-center top-2 left-2 font-bold bg-gray-300 text-black rounded-xl">
                     {new Date(day).getDate()}
                   </div>
                   {hasReleases ? (
-                    <div class="relative grid h-full auto-rows-fr overflow-hidden gap-2 rounded-xl xl:bg-neumorphic-bg xl:shadow-neumorphic">
+                    <div class="relative grid h-full auto-rows-fr overflow-hidden gap-2 rounded-xl bg-white dark:bg-black">
                       {groupedReleases[day].map(release => (
                         <ReleaseCard key={release.id} {...release} />
                       ))}

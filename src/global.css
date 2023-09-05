@@ -8,5 +8,5 @@ body {
 }
 
 body {
-  @apply bg-main-bg text-main-text;
+  @apply bg-white text-black dark:bg-main-bg dark:text-main-text;
 }

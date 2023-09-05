@@ -27,11 +27,12 @@ export default component$(() => {
 })
 
 export const head: DocumentHead = {
-  title: 'Relizd',
+  title: 'Relizd - interactive calendar for upcoming movies, TV shows, and games',
   meta: [
     {
       name: 'description',
-      content: 'Relizd',
+      content:
+        "Relizd is a user-friendly calendar designed for effortless browsing and tracking of upcoming video games, movies, and TV series. Discover the release dates of the latest entertainment content, and ensure you stay in the loop by subscribing to notifications. Don't miss out on anything!",
     },
   ],
 }

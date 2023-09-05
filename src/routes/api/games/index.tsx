@@ -7,7 +7,7 @@ export const onGet: RequestHandler = async ({ json, url }) => {
   const from = url.searchParams.get('from') as string
   const to = url.searchParams.get('to') as string
 
-  const URL = isFutureDate(from)
+  const URL = isFutureDate(to)
     ? `https://api.rawg.io/api/games?key=${process.env['RAWG_API_KEY']}&dates=${from},${to}&page_size=20`
     : `https://api.rawg.io/api/games?key=${process.env['RAWG_API_KEY']}&dates=${from},${to}&page_size=50&metacritic=70,100`
 

@@ -4,6 +4,7 @@ import { LinkTabs } from '~/components/LinkTabs'
 import { Calendar } from '~/components/Calendar'
 import { Title } from '~/components/Title'
 import type { Release, ReleaseType } from '~/domain/release'
+import { MONTHS } from '~/lib/const'
 
 type Props = {
   type: ReleaseType
@@ -25,6 +26,8 @@ export const ReleasesLayout = component$<Props>(
       month: 'long',
     })
 
+    const dateWithFallback = date || MONTHS[month] + '-' + year
+
     return (
       <>
         <div class="mb-5">
@@ -32,13 +35,17 @@ export const ReleasesLayout = component$<Props>(
             data={[
               {
                 name: 'Movies',
-                href: '/movies/' + date,
+                href: '/movies/' + dateWithFallback,
                 active: type === 'movies',
               },
-              { name: 'TV', href: '/tv/' + date, active: type === 'tv' },
+              {
+                name: 'TV',
+                href: '/tv/' + dateWithFallback,
+                active: type === 'tv',
+              },
               {
                 name: 'Games',
-                href: '/games/' + date,
+                href: '/games/' + dateWithFallback,
                 active: type === 'games',
               },
             ]}

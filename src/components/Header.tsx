@@ -13,22 +13,22 @@ export const Header = component$(() => {
   return (
     <header class="px-4 py-4 mb-5 md:px-8 flex items-center justify-between">
       <Logo />
-      <div class="fixed bottom-5 left-5 bg-pink/90 text-black py-2 px-4 z-20 rounded-lg flex gap-4 items-center md:static">
+      <div class="fixed left-0 bottom-0 mb-4 mx-4 bg-gray-100 text-black py-2 px-4 z-20 rounded-lg flex gap-4 items-center drop-shadow md:static">
         <a
-          class="font-bold capitalize text-xl hover:bg-pink shadow-sm shadow-black transition-all py-0.5 px-2 rounded-md"
+          class="font-bold capitalize text-lg hover:bg-white/80 transition-all py-0.5 px-2 rounded-md"
           href={`/${type}/${prev.month}-${prev.year}`}
           aria-label="To prev month">
-          ← Prev
+          ←
         </a>
-        <p class="font-bold capitalize text-xl">
+        <p class="font-bold capitalize text-lg w-36 text-center">
           {current.month}{' '}
           <span class="font-thin tracking-wider">{current.year}</span>
         </p>
         <a
-          class="font-bold capitalize text-xl hover:bg-pink shadow-sm shadow-black transition-all py-0.5 px-2 rounded-md"
+          class="font-bold capitalize text-lg hover:bg-white/80 transition-all py-0.5 px-2 rounded-md"
           href={`/${type}/${next.month}-${next.year}`}
           aria-label="To next month">
-          Next →
+          →
         </a>
       </div>
     </header>

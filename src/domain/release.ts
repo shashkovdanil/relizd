@@ -3,7 +3,7 @@ export type Release = {
   title: string
   releasedAt: string
   cover: string
-  rating: number
+  rating: string | null
   isUpcoming: boolean
 }
 

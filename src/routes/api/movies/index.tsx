@@ -8,7 +8,7 @@ export const onGet: RequestHandler = async ({ json, url }) => {
     const from = url.searchParams.get('from') as string
     const to = url.searchParams.get('to') as string
 
-    const URL = isFutureDate(from)
+    const URL = isFutureDate(to)
       ? `https://api.themoviedb.org/3/discover/movie?api_key=${process.env['TMDB_API_KEY']}&primary_release_date.gte=${from}&primary_release_date.lte=${to}`
       : `https://api.themoviedb.org/3/discover/movie?api_key=${process.env['TMDB_API_KEY']}&primary_release_date.gte=${from}&primary_release_date.lte=${to}&vote_average.gte=5&vote_count.gte=100`
 
