@@ -21,6 +21,7 @@ type Params =
 export function releasesAdapter(params: Params) {
   if (params.type === 'games') {
     return params.response.results.map<Release>(game => ({
+      type: 'games',
       id: game.id,
       title: game.name,
       releasedAt: game.released,
@@ -34,6 +35,7 @@ export function releasesAdapter(params: Params) {
     return params.response.results
       .filter(movie => movie.vote_average === 0 || movie.vote_average >= 5)
       .map<Release>(movie => ({
+        type: 'movies',
         id: movie.id,
         title: movie.title,
         releasedAt: movie.release_date,
@@ -49,6 +51,7 @@ export function releasesAdapter(params: Params) {
   return params.response.results
     .filter(tv => tv.vote_average === 0 || tv.vote_average >= 5)
     .map<Release>(tv => ({
+      type: 'tv',
       id: tv.id,
       title: tv.name,
       releasedAt: tv.first_air_date,

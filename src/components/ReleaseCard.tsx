@@ -1,16 +1,19 @@
 import { component$, useSignal } from '@builder.io/qwik'
 import format from 'date-fns/format'
 import cn from 'classnames'
+import slugify from '@sindresorhus/slugify'
 import type { Release } from '~/domain/release'
 import IconStar from '~/media/icons/star.svg?jsx'
 
 export const ReleaseCard = component$<Release>(
-  ({ id, releasedAt, cover, title, rating, isUpcoming }) => {
+  ({ type, id, releasedAt, cover, title, rating, isUpcoming }) => {
     const isBrokenImage = useSignal(false)
     const ratingNumber = Number(rating?.match(/\d+(\.\d+)?/)?.[0])
 
     return (
-      <a href={`/release/${id}`} class="relative group">
+      <a
+        href={`/release/${id}-${type}-${slugify(title)}`}
+        class="relative group">
         <div class="absolute top-0 z-10 p-2">
           <div class="font-bold rounded-xl py-1 px-2 text-sm/none bg-white/80 text-black">
             {format(new Date(releasedAt), 'EEEEEE, d MMM')}

@@ -38,7 +38,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.0",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "0.0.0-insiders.7a86f3a",
     "typescript": "5.1.6",
     "undici": "5.22.1",
     "vercel": "^29.1.1",
@@ -47,6 +47,7 @@
     "vitest": "^0.34.3"
   },
   "dependencies": {
+    "@sindresorhus/slugify": "^2.2.1",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0"
   }

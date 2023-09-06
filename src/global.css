@@ -12,3 +12,7 @@ body {
 
   @apply bg-white text-black dark:bg-main-bg dark:text-main-text;
 }
+
+::view-transition-group(root) {
+  animation-duration: 5s;
+}
