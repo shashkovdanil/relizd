@@ -13,14 +13,14 @@ export const ReleaseCard = component$<Release>(
     return (
       <a
         href={`/release/${id}-${type}-${slugify(title)}`}
-        class="relative group">
-        <div class="absolute top-0 z-10 p-2">
+        class="swiper-slide relative h-full group">
+        <div class="absolute top-0 z-10 p-4">
           <div class="font-bold rounded-xl py-1 px-2 text-sm/none bg-white/80 text-black">
             {format(new Date(releasedAt), 'EEEEEE, d MMM')}
           </div>
         </div>
         <div class="relative h-full overflow-hidden group-hover:opacity-70 transition-opacity duration-300">
-          {isBrokenImage.value ? (
+          {isBrokenImage.value || !cover ? (
             <div class="w-full h-full group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
               {title}
             </div>
@@ -37,8 +37,10 @@ export const ReleaseCard = component$<Release>(
           )}
           <div class="absolute top-0 w-full h-full bg-release-card-cover-gradient" />
         </div>
-        <div class="absolute bottom-0 z-10 p-2 flex flex-col gap-2">
-          <p class="font-bold text-xl/normal line-clamp-3 drop-shadow-md text-white">
+        <div class="absolute bottom-0 z-10 p-4 w-full flex flex-col gap-2">
+          <p
+            class="font-bold text-base/tight line-clamp-3 drop-shadow-md text-white"
+            title={title}>
             {title}
           </p>
           {!isUpcoming && rating && (

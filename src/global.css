@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --swiper-scrollbar-drag-bg-color: #fff;
+  --swiper-scrollbar-bg-color: rgb(255 255 255 / 30%);
+}
+
 html,
 body {
   height: 100%;
@@ -11,8 +16,4 @@ body {
   font-family: 'Prompt', system-ui;
 
   @apply bg-white text-black dark:bg-main-bg dark:text-main-text;
-}
-
-::view-transition-group(root) {
-  animation-duration: 5s;
 }
